@@ -20,7 +20,7 @@ export default function Home() {
           <hr className="border-10 dark:border-highlight rounded-lg"></hr>
           <p className="mt-6 text-2xl font-shadow text-navyblue dark:text-navyblue">
             Hello there! I'm a Grade 12 at OPSS looking into eng for post secondary. Take a look around to learn more :)
-          </p> 
+          </p>
           <div className="columns-2 py-4">
             <div className=" border-4 border-solid py-10 text-navyblue dark:border-navyblue rounded-lg align-center justify-center">
               <div className="bg-highlight rounded-lg font-shadow font-bold text-navyblue columns-7 items-center justify-center">
@@ -61,12 +61,11 @@ export default function Home() {
             <li>★ start investing</li>
           </ul>
         </div>
-        
-      <Draggable nodeRef={nodeRef}>
-          <div ref={nodeRef} className="bg-stickynote w-60 h-60 shadow-2xs grid grid-flow-col justify-center items-center ">
-            <p className="font-shadow font-bold text-navyblue text-xl">You can move me around!</p>
-          </div>
-      </Draggable>
+        <Draggable nodeRef={nodeRef}>
+            <div ref={nodeRef} className="bg-stickynote w-60 h-60 shadow-2xs grid grid-flow-col justify-center items-center z-10 top-100 left-100 cursor-move p-4">
+              <p className="font-shadow font-bold text-navyblue text-xl">You can move me around!</p>
+            </div>
+        </Draggable>
         <div className="font-shadow text-navyblue text-4xl">
           <button className="bg-[url(/nextpage.svg)] bg-[length:100%] w-60 h-16 align-items-left">
             <a href="/aboutme" className="m-10">See more!</a>
