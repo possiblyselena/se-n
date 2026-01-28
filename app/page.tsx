@@ -5,7 +5,7 @@ import React, { useState } from "react";
 export default function Home() {
   const today = new Date();
   const date = today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
-
+  /*const months = [January, February, March, April, May, June, July, August, September, October, November, December];*/
   return (
     <div className="flex min-h-screen items-center justify-center dark:bg-black">
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-10 px-16 bg-white dark:bg-white sm:items-start"> 
