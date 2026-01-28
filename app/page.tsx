@@ -1,15 +1,19 @@
 'use client';
 import Image from "next/image";
 import React, { useState } from "react";
+import Draggable from "react-draggable";
+import { useRef } from "react";
 
 export default function Home() {
+  const nodeRef = useRef(null)
+
   const today = new Date();
   const date = today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
   /*const months = [January, February, March, April, May, June, July, August, September, October, November, December];*/
   return (
     <div className="flex min-h-screen items-center justify-center dark:bg-black">
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-10 px-16 bg-white dark:bg-white sm:items-start"> 
-        <div className="">
+        <div className="navyblue w-full">
           <h1 className="text-7xl font-shadow font-semibold text-navyblue dark:text-navyblue sm:text-6xl">
             Selena
           </h1>
@@ -57,11 +61,16 @@ export default function Home() {
             <li>★ start investing</li>
           </ul>
         </div>
+        
+      <Draggable nodeRef={nodeRef}>
+          <div ref={nodeRef} className="bg-stickynote w-60 h-60 shadow-2xs grid grid-flow-col justify-center items-center ">
+            <p className="font-shadow font-bold text-navyblue text-xl">You can move me around!</p>
+          </div>
+      </Draggable>
         <div className="font-shadow text-navyblue text-4xl">
           <button className="bg-[url(/nextpage.svg)] bg-[length:100%] w-60 h-16 align-items-left">
             <a href="/aboutme" className="m-10">See more!</a>
           </button>
-            
         </div>
       </main>
     </div>
