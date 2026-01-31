@@ -4,44 +4,71 @@ import React, { useState } from "react";
 import Draggable from "react-draggable";
 import { useRef } from "react";
 
+function getDaysInMonth(year: number, month: number){
+    const firstDay = new Date(year, month, 1).getDay();
+    const totalDay = new Date(year, month + 1, 0).getDate();
+
+      return { firstDay, totalDay };  
+}
+
 export default function Home() {
-  const nodeRef = useRef(null)
+  const nodeRef = useRef(null);
 
   const today = new Date();
-  const date = today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
-  /*const months = [January, February, March, April, May, June, July, August, September, October, November, December];*/
+  const [currentDate] = useState(
+    new Date(today.getFullYear(), today.getMonth())
+  );
+
+  const year = currentDate.getFullYear();
+  const month = currentDate.getMonth();
+
+  const { firstDay, totalDay } = getDaysInMonth(year, month);
+
   return (
     <div className="flex min-h-screen items-center justify-center dark:bg-black">
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-10 px-16 bg-white dark:bg-white sm:items-start"> 
         <div className="navyblue w-full">
-          <h1 className="text-7xl font-shadow font-semibold text-navyblue dark:text-navyblue sm:text-6xl">
+          <h1 className="text-8xl font-shadow font-semibold text-navyblue dark:text-navyblue">
             Selena
           </h1>
           <hr className="border-10 dark:border-highlight rounded-lg"></hr>
           <p className="mt-6 text-2xl font-shadow text-navyblue dark:text-navyblue">
             Hello there! I'm a Grade 12 at OPSS looking into eng for post secondary. Take a look around to learn more :)
           </p>
-          <div className="columns-2 py-4">
-            <div className=" border-4 border-solid py-10 text-navyblue dark:border-navyblue rounded-lg align-center justify-center">
-              <div className="bg-highlight rounded-lg font-shadow font-bold text-navyblue columns-7 items-center justify-center">
-                <p>S</p>
-                <p>M</p>
-                <p>T</p>
-                <p>W</p>
-                <p>R</p>
-                <p>F</p>
-                <p>S</p>
-              </div>
-            <div>
+          <div className="grid grid-cols-2">
+            <div className=" border-4 border-solid text-navyblue dark:border-navyblue rounded-lg">
+                <div className="bg-highlight rounded-lg font-shadow font-bold text-navyblue">
+                  <ul className="grid grid-cols-7 text-center mb-2">
+                    {['S', 'M', 'T', 'W', 'R', 'F', 'S'].map((day) => (
+                      <li key={day}>{day}</li>
+                    ))}
+                  </ul>
+                  <ul className="grid grid-cols-7 gap-2 text-center bg-white">
+                    {Array.from({ length: totalDay}).map((_, i) => {
+                      const dayNumber = i +1;
+                      const isToday =
+                        dayNumber === today.getDate() &&
+                        month == today.getMonth() &&
+                        year === today.getFullYear();
 
+                      return (
+                        <li
+                          key={dayNumber}
+                          className={`rounded-lg py-2 ${
+                                isToday ? 'bg-navyblue text-white font-bold'
+                                : ''
+                            }   
+                          `}
+                        >
+                          {dayNumber}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
             </div>
-            <div>
-
-            </div>
-            </div>
-            <div className="text-4xl font-shadow text-navyblue dark:border-navyblue rows-2">
-              <h1>today's date is</h1>
-              <p id="current date">{date}</p>
+             <div className="text-4xl font-shadow text-navyblue dark:border-navyblue ">
+                  <h1>today's date is {today.toLocaleDateString()}</h1>
             </div>
           </div>
         </div>
@@ -66,8 +93,8 @@ export default function Home() {
               <p className="font-shadow font-bold text-navyblue text-xl">You can move me around!</p>
             </div>
         </Draggable>
-        <div className="font-shadow text-navyblue text-4xl">
-          <button className="bg-[url(/nextpage.svg)] bg-[length:100%] w-60 h-16 align-items-left">
+        <div className="font-shadow text-navyblue text-4xl grid justify-center items-right">
+          <button className="bg-[url(/nextpage.svg)] bg-[length:100%] w-60 h-16 justify-center items-center">
             <a href="/aboutme" className="m-10">See more!</a>
           </button>
         </div>

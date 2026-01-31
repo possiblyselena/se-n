@@ -27,7 +27,7 @@ export default function Home() {
             </div>
         </div>
         <div className="font-shadow text-navyblue text-4xl">
-          <button className=" bg-[length:100%] w-60 h-16 align-items-left">
+          <button className="bg-image-['/bookmark.svg']bg-[length:100%] w-60 h-16 align-items-left">
             <a href="/projects" className="m-10">Projects</a>
           </button>
         </div>
