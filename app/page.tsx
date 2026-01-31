@@ -32,43 +32,46 @@ export default function Home() {
             Selena
           </h1>
           <hr className="border-10 dark:border-highlight rounded-lg"></hr>
-          <p className="mt-6 text-2xl font-shadow text-navyblue dark:text-navyblue">
+          <p className="mt-6 text-3xl font-shadow text-navyblue dark:text-navyblue p-2">
             Hello there! I'm a Grade 12 at OPSS looking into eng for post secondary. Take a look around to learn more :)
           </p>
           <div className="grid grid-cols-2">
             <div className=" border-4 border-solid text-navyblue dark:border-navyblue rounded-lg">
-                <div className="bg-highlight rounded-lg font-shadow font-bold text-navyblue">
+                <div className="bg-highlight pt-2 font-shadow font-bold text-navyblue">
                   <ul className="grid grid-cols-7 text-center mb-2">
                     {['S', 'M', 'T', 'W', 'R', 'F', 'S'].map((day) => (
                       <li key={day}>{day}</li>
                     ))}
                   </ul>
                   <ul className="grid grid-cols-7 gap-2 text-center bg-white">
-                    {Array.from({ length: totalDay}).map((_, i) => {
-                      const dayNumber = i +1;
+                    {Array.from({ length: firstDay }).map((_, i) => (
+                      <li key={`empty-${i}`} />
+                    ))}
+
+                    {Array.from({ length: totalDay }).map((_, i) => {
+                      const dayNumber = i + 1;
+
                       const isToday =
                         dayNumber === today.getDate() &&
-                        month == today.getMonth() &&
+                        month === today.getMonth() &&
                         year === today.getFullYear();
 
                       return (
                         <li
                           key={dayNumber}
                           className={`rounded-lg py-2 ${
-                                isToday ? 'bg-navyblue text-white font-bold'
-                                : ''
-                            }   
-                          `}
-                        >
-                          {dayNumber}
+                          isToday ? "bg-navyblue text-white font-bold" : ""
+                            }`}>
+                            {dayNumber}
                         </li>
                       );
-                    })}
+                   })}
                   </ul>
                 </div>
             </div>
-             <div className="text-4xl font-shadow text-navyblue dark:border-navyblue ">
-                  <h1>today's date is {today.toLocaleDateString()}</h1>
+             <div className="text-4xl font-shadow text-navyblue dark:border-navyblue grid justify-center items-center">
+                  <h1>today's date is </h1>
+                  <h1>{today.toLocaleDateString()}</h1>
             </div>
           </div>
         </div>
