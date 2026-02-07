@@ -7,7 +7,7 @@ export default function Home() {
 
     return (
         <div className="flex min-h-screen items-center justify-center dark:bg-black">
-            <main className="flex min-h-screen w-full max-w-3xl flex-col items-center bg-white dark:bg-white sm:items-start">
+            <main className="flex min-h-screen w-full max-w-3xl flex-col items-center bg-white dark:bg-white bg-[url(/dottedgrid.svg)] sm:items-start">
                 <div className="">
                     <h2 className="font-shadow font-semibold text-navyblue dark:text-navyblue sm:text-7xl">
                         Contacts!

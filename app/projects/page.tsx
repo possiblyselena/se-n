@@ -6,7 +6,7 @@ import { useRef } from "react";
 export default function Home() {
     return (
         <div className="flex min-h-screen items-center justify-center dark:bg-black">
-            <main className="flex min-h-scren w-full max-w-3xl flex-col items center justify-between py-10 px-16 bg-white dark:bg-white sm:items-start">
+            <main className="flex min-h-scren w-full max-w-3xl flex-col items center justify-between py-10 px-16 bg-white dark:bg-white bg-[url(/dottedgrid.svg)] sm:items-start">
                 <div className="navyblue w-full">
                     <h1 className="text-7xl font-shadow font-semibold text-navyblue dark:text-navyblue sm:text-6xl">
                         Projects
