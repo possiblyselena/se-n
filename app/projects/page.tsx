@@ -8,9 +8,29 @@ export default function Home() {
         <div className="flex min-h-screen items-center justify-center dark:bg-black">
             <main className="flex min-h-scren w-full max-w-3xl flex-col items center justify-between py-10 px-16 bg-white dark:bg-white bg-[url(/dottedgrid.svg)] sm:items-start">
                 <div className="navyblue w-full">
-                    <h1 className="text-7xl font-shadow font-semibold text-navyblue dark:text-navyblue sm:text-6xl">
-                        Projects
-                    </h1>
+                    <div className="grid grid-cols-2">
+                        <h1 className="text-9xl font-shadow font-semibold text-navyblue dark:text-navyblue sm:text-6xl">
+                            Projects
+                        </h1>
+                        <div className="grid grid-cols-4 scale-85">
+                            <a href="/">
+                                <img src="/bluebookmark.svg">
+                                </img>
+                            </a>
+                            <a href="/aboutme">
+                                <img src="/purplebookmark.png">
+                                </img>
+                            </a>
+                            <a href="/projects">
+                                <img src="/greenbookmark.svg">
+                                </img>
+                            </a>
+                            <a href="/contacts">
+                                <img src="/pinkbookmark.svg">
+                                </img>
+                            </a>
+                        </div>
+                    </div>
                     <hr className="border-10 dark:border-highlight rounded-lg"></hr>
                 </div>
                 <h1 className="font-shadow font-semibold text-navyblue dark:text-navyblue sm:text-5xl grid-align-items-center justify-center">
@@ -33,13 +53,13 @@ export default function Home() {
                                 <span
                                     className="mt-1 h-5 w-5 bg-[url('/box.svg')] bg-contain bg-no-repeat"
                                 />
-                                <span>2</span>
+                                <span>140 Students Hosted at McMaster University in 2024</span>
                             </li>
                             <li className="flex items-start gap-2">
                                 <span
                                     className="mt-1 h-5 w-5 bg-[url('/box.svg')] bg-contain bg-no-repeat"
                                 />
-                                <span>3</span>
+                                <span>For 2026, I'm leading Hamerhacks II!</span>
                             </li>
                         </ul>
                     </div>
@@ -83,13 +103,17 @@ export default function Home() {
                                 <span
                                     className="mt-1 h-5 w-5 bg-[url('/box.svg')] bg-contain bg-no-repeat"
                                 />
-                                <span>CAD, electrical, and firmware open source here!</span>
+                                <span>
+                                    <a href="https://www.instagram.com/p/DMhgdUJt8QJ/">
+                                        Featured in the Highway Magazine Published on GitHub Education! 
+                                    </a>
+                                </span>
                             </li>
                             <li className="flex items-start gap-2">
                                 <span
                                     className="mt-1 h-5 w-5 bg-[url('/box.svg')] bg-contain bg-no-repeat"
                                 />
-                                <span>Made for Highway & Undercity (& the Athena Award)</span>
+                                <span>Made for <a href="https://highway.hackclub.com/">Highway</a> & <a href="https://undercity.hackclub.com/">Undercity</a> <a href="https://award.athena.hackclub.com/">& the Athena Award</a></span>
                             </li>
                         </ul>
                     </div>

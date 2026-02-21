@@ -32,7 +32,7 @@ export default function Home() {
             <h1 className="text-9xl font-shadow font-semibold text-navyblue dark:text-navyblue">
             Selena
             </h1>
-            <div className="grid grid-cols-4">
+            <div className="grid grid-cols-4 scale-90">
               <a href="">
                 <img src="/bluebookmark.svg">
                 </img>
@@ -51,6 +51,7 @@ export default function Home() {
               </a>
             </div>
           </div>
+          <hr className="border-8 border-highlight rounded-lg"></hr>
           <p className="mt-6 text-3xl font-shadow text-navyblue dark:text-navyblue p-2">
             Hello there! I'm a Grade 12 at OPSS looking into eng for post secondary. Take a look around to learn more :)
           </p>
@@ -88,9 +89,20 @@ export default function Home() {
                   </ul>
                 </div>
             </div>
-             <div className="text-4xl font-shadow text-navyblue dark:border-navyblue grid justify-center items-center">
-                  <h1>today's date is </h1>
+            <div className="relative grid justify-center">
+              <div className="absolute inset-0">
+                <div className="text-4xl font-shadow text-navyblue dark:border-navyblue grid justify-center text-center align-middle">
+                  <h1>today's date is</h1>
                   <h1 className="text-5xl">{today.toLocaleDateString()}</h1>
+                </div>
+              </div>
+              <div className="absolute inset-0 align-items-center">
+                <Draggable nodeRef={nodeRef}>
+                  <div ref={nodeRef} className="bg-stickynote w-60 h-60 shadow-2xs grid grid-flow-col justify-center items-center z-10 p-4">
+                    <p className="font-shadow font-bold text-navyblue text-xl">You can move me around!</p>
+                  </div>
+                </Draggable>
+              </div>
             </div>
           </div>
         </div>
@@ -110,25 +122,10 @@ export default function Home() {
             <li>★ start investing</li>
           </ul>
         </div>
-        <Draggable nodeRef={nodeRef}>
-            <div ref={nodeRef} className="bg-stickynote w-60 h-60 shadow-2xs grid grid-flow-col justify-center items-center z-10 top-100 left-100 p-4">
-              <p className="font-shadow font-bold text-navyblue text-xl">You can move me around!</p>
-            </div>
-        </Draggable>
-        <div className="font-shadow text-navyblue text-4xl grid justify-center items-right">
+        <div className="font-shadow text-navyblue text-4xl grid justify-center align-items-right">
           <button className="bg-[url(/nextpage.svg)] bg-[length:100%] w-60 h-16 justify-center items-center">
             <a href="/aboutme" className="m-10">See more!</a>
           </button>
-        </div>
-        <div className="grid grid-cols-4">
-          <img src="/bluebookmark.svg">
-          </img>
-          <img src="/greenbookmark.svg">
-          </img>
-          <img src="/purplebookmark.png">
-          </img>
-          <img src="/pinkbookmark.svg">
-          </img>
         </div>
       </main>
     </div>

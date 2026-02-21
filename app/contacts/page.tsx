@@ -9,7 +9,7 @@ export default function Home() {
         <div className="flex min-h-screen items-center justify-center dark:bg-black">
             <main className="flex min-h-screen w-full max-w-3xl flex-col items-center bg-white dark:bg-white bg-[url(/dottedgrid.svg)] sm:items-start">
                 <div className="">
-                    <h2 className="font-shadow font-semibold text-navyblue dark:text-navyblue sm:text-7xl">
+                    <h2 className="font-shadow font-semibold text-navyblue dark:text-navyblue sm:text-9xl">
                         Contacts!
                     </h2>
                 </div>
@@ -18,13 +18,30 @@ export default function Home() {
                     <p>Hello I am so awesome sauce and you should contact me on my following social!</p>
                 </div>
                 <ul className="font-shadow text-navyblue text-2xl">
-                    <li>Email</li>
-                    <li>linkedin</li>
-                    <li>github</li>
-                    <li>instagram</li>
+                    <li>
+                        <a href="">
+                            Email
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            LinkedIn
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            GitHub
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            Instagram
+                        </a>
+                    </li>
                 </ul>
                 <div>
                     <h2 className="font-shadow font-semibold text-navyblue">Additionally, sign my guestbook vvv</h2>
+                    </div>
                 </div>
             </main>
         </div>

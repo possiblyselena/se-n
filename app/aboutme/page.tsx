@@ -10,23 +10,27 @@ export default function Home() {
 <div className="flex min-h-screen items-center justify-center dark:bg-black">
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-10 px-16 bg-[url(/dottedgrid.svg)] bg-repeat sm:items-start"> 
         <div className="navyblue w-full">
-          <div>
-            <h1 className="text-10xl font-shadow font-semibold text-navyblue dark:text-navyblue sm:text-6xl">
+          <div className=" grid grid-cols-2 align-items-center    ">
+            <h1 className="text-7xl font-shadow font-semibold text-navyblue dark:text-navyblue">
             About me
             </h1>
-            <div>
-              <button>
-
-              </button>
-              <button>
-                
-              </button>
-              <button>
-                
-              </button>
-              <button>
-                
-              </button>
+            <div className=" grid grid-cols-4 scale-60">
+              <a href="/">
+                <img src="/bluebookmark.svg">
+                </img>
+              </a>
+              <a href="/aboutme">
+                <img src="/purplebookmark.png">
+                </img>
+              </a>
+              <a href="/projects">
+                <img src="/greenbookmark.svg">
+                </img>
+              </a>
+              <a href="/contacts">
+                <img src="pinkbookmark.svg">
+                </img>
+              </a>
             </div>
           </div>
           <hr className="border-10 dark:border-highlight rounded-lg"></hr>
@@ -55,25 +59,25 @@ export default function Home() {
         <h1 className="font-shadow text-navyblue text-6xl bg-[url(/squiggle.svg)]">
           Outside of School
         </h1>
-        <div className="grid grid-cols-6 gap-4">
+        <div className="grid grid-cols-6 gap-4 text-3xl">
           <Draggable nodeRef={nodeRef}>
             <div ref={nodeRef} className="bg-stickynote w-50 h-50 shadow-2xl grid grid-flow-col justify-center items-center z-10 p-4 col-start-2 span-3">
-              <p className="font-shadow font-bold text-navyblue text-xl">Baking!</p>
+              <p className="font-shadow font-bold text-navyblue">Baking!</p>
             </div>
           </Draggable>
           <Draggable nodeRef={nodeRef}>
             <div ref={nodeRef} className="bg-stickynote w-50 h-50 shadow-2xl grid grid-flow-col justify-center items-center z-10 p-4 col-start-5 span-3">
-              <p className="font-shadow font-bold text-navyblue text-xl">photography!</p>
+              <p className="font-shadow font-bold text-navyblue">photography!</p>
             </div>
           </Draggable>
           <Draggable nodeRef={nodeRef}>
             <div ref={nodeRef} className="bg-stickynote w-50 h-50 shadow-2xl grid grid-flow-col justify-center items-center z-10 p-4 col-start-1 span-3">
-              <p className="font-shadow font-bold text-navyblue text-xl">other things</p>
+              <p className="font-shadow font-bold text-navyblue">other things</p>
             </div>
           </Draggable>
           <Draggable nodeRef={nodeRef}>
             <div ref={nodeRef} className="bg-stickynote w-50 h-50 shadow-2xl grid grid-flow-col justify-center items-center z-10 p-4 col-start-4 span-2">
-              <p className="font-shadow font-bold text-navyblue text-xl span-4">other thingys!</p>
+              <p className="font-shadow font-bold text-navyblue span-4">other thingys!</p>
             </div>
           </Draggable>
         </div>
