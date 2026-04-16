@@ -6,13 +6,13 @@ import { useRef } from "react";
 export default function Home() {
     return (
         <div className="flex min-h-screen items-center justify-center dark:bg-black">
-            <main className="flex min-h-scren w-full max-w-3xl flex-col items center justify-between py-10 px-16 bg-white dark:bg-white bg-[url(/dottedgrid.svg)] sm:items-start">
-                <div className="navyblue w-full">
-                    <div className="grid grid-cols-2">
-                        <h1 className="text-9xl font-shadow font-semibold text-navyblue dark:text-navyblue sm:text-6xl">
+            <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-10 px-16 bg-white dark:bg-white sm:items-start bg-[url(/dottedgrid.svg)]">
+                <div>
+                    <div className=" h-full grid grid-cols-2">
+                        <h1 className="text-9xl font-shadow font-semibold text-navyblue dark:text-navyblue sm:text-8xl">
                             Projects
                         </h1>
-                        <div className="grid grid-cols-4 scale-85">
+                        <div className="grid grid-cols-4 scale-90">
                             <a href="/">
                                 <img src="/bluebookmark.svg">
                                 </img>
@@ -22,16 +22,16 @@ export default function Home() {
                                 </img>
                             </a>
                             <a href="/projects">
-                                <img src="/greenbookmark.svg">
+                                <img src="/pinkbookmark.svg">
                                 </img>
                             </a>
                             <a href="/contacts">
-                                <img src="/pinkbookmark.svg">
+                                <img src="/greenbookmark.svg">
                                 </img>
                             </a>
                         </div>
                     </div>
-                    <hr className="border-10 dark:border-highlight rounded-lg"></hr>
+                    <hr className="border-8 dark:border-highlight rounded-lg"></hr>
                 </div>
                 <h1 className="font-shadow font-semibold text-navyblue dark:text-navyblue sm:text-5xl grid-align-items-center justify-center">
                     cool stuff I've made!
@@ -138,7 +138,7 @@ export default function Home() {
                                 <span
                                     className="mt-1 h-5 w-5 bg-[url('/box.svg')] bg-contain bg-no-repeat"
                                 />
-                                <span>Made for qualifying for the Campfire Flagship and Sleepover!</span>
+                                <span>Made for qualifying for <a href="https://sleepover.hackclub.com/">Sleepover</a>!</span>
                             </li>
                         </ul>
                     </div>

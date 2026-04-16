@@ -14,7 +14,7 @@ export default function Home() {
             <h1 className="text-7xl font-shadow font-semibold text-navyblue dark:text-navyblue">
             About me
             </h1>
-            <div className=" grid grid-cols-4 scale-60">
+            <div className=" grid grid-cols-4 scale-90">
               <a href="/">
                 <img src="/bluebookmark.svg">
                 </img>
@@ -24,16 +24,16 @@ export default function Home() {
                 </img>
               </a>
               <a href="/projects">
-                <img src="/greenbookmark.svg">
+                <img src="/pinkbookmark.svg">
                 </img>
               </a>
               <a href="/contacts">
-                <img src="pinkbookmark.svg">
+                <img src="/greenbookmark.svg">
                 </img>
-              </a>
+              </a>   
             </div>
           </div>
-          <hr className="border-10 dark:border-highlight rounded-lg"></hr>
+          <hr className="border-8 dark:border-highlight rounded-lg"></hr>
           <div className="columns-2 py-4">
             <div>
                 <Image
