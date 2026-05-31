@@ -34,19 +34,19 @@ export default function Home() {
             </h1>
             <div className="grid grid-cols-4 scale-90">
               <a href="">
-                <img src="/bluebookmark.svg">
+                <img src="/bluebookmark.svg" className="hover:transform hover:scale-105 ">
                 </img>
               </a>
               <a href="/aboutme">
-                <img src="/purplebookmark.png">
+                <img src="/purplebookmark.png" className="hover:transform hover:scale-105 hover:transition">
                 </img>
               </a>
               <a href="/projects">
-                <img src="/pinkbookmark.svg">
+                <img src="/pinkbookmark.svg" className="hover:transform hover:scale-105 hover:transition">
                 </img>
               </a>
               <a href="/contacts">
-                <img src="/greenbookmark.svg">
+                <img src="/greenbookmark.svg" className="hover:transform hover:scale-105 hover:transition">
                 </img>
               </a>
             </div>
@@ -80,7 +80,7 @@ export default function Home() {
                         <li
                           key={dayNumber}
                           className={`rounded-lg py-2 ${
-                          isToday ? "bg-navyblue text-white font-bold" : ""
+                          isToday ? "bg-navyblue text-white font-bold align-items-center justify-content" : ""
                             }`}>
                             {dayNumber}
                         </li>

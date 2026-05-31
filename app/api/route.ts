@@ -3,7 +3,9 @@ import { NextResponse } from 'next/server'
 
 export async function GET() {
   const entries = await sql`
-    SELECT * FROM guestbook ORDER BY created_at DESC
+    SELECT * FROM guestbook
+    WHERE created_at >= date_trunc('month', now())
+    ORDER BY created_at DESC
   `
   return NextResponse.json(entries)
 }

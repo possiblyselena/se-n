@@ -15,12 +15,29 @@ export default function Home() {
     const [name, setName] = useState('');
     const [message, setMessage] = useState('');
     const [loading, setLoading] = useState(false);
+    const [page, setPage] = useState(0);
+    const pageSize = 4;
 
     useEffect(() => {
         fetch('/api/')
-        .then(r =>r.json())
+        .then(r => r.json())
         .then(setEntries)
     }, [])
+
+    const now = new Date();
+    const currentMonth = now.getMonth();
+    const currentYear = now.getFullYear();
+
+    const monthlyEntries = entries.filter((entry) => {
+        const created = new Date(entry.created_at);
+        return (
+            created.getMonth() === currentMonth &&
+            created.getFullYear() === currentYear
+        );
+    });
+
+    const visibleEntries = monthlyEntries.slice(page * pageSize, page * pageSize + pageSize);
+    const totalPages = Math.ceil(monthlyEntries.length / pageSize);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -34,7 +51,8 @@ export default function Home() {
 
         if (res.ok) {
             const newEntry = await res.json()
-            setEntries([newEntry, ...entries])
+            setEntries(prev => [newEntry, ...prev])
+            setPage(0)
             setName('')
             setMessage('')
         }
@@ -70,25 +88,25 @@ export default function Home() {
                 <div className="font-shadow text-navyblue text-2xl py-4">
                     <p>If you thought anything was cool on this page, you should contact me or follow any of my socials below!</p>
                 </div>
-                <div className="w-full flex items-center justify-center font-shadow text-4xl py-4">
-                        <button className="bg-navyblue w-80 h-20 flex items-center justify-center rounded-lg">
+                <div className="w-full flex items-center justify-center font-shadow text-4xl">
+                        <button className="bg-navyblue w-80 h-20 flex items-center justify-center rounded-lg m-4 hover:bg-highlight hover:transition-colors duration-300 hover:transform hover:scale-105">
                             <a href="mailto:selena@events.hackclub.com">
                              Email
                             </a>
                         </button>
-                        <button className="bg-navyblue w-80 h-20 flex items-center justify-center rounded-lg">
+                        <button className="bg-navyblue w-80 h-20 flex items-center justify-center rounded-lg hover:bg-highlight hover:transition-colors duration-300 hover:transform hover:scale-105">
                             <a href="https://www.linkedin.com/in/selena-nguyen-0b7287321/">
                                     LinkedIn
                             </a>
                         </button>
                 </div>
                 <div className="font-shadow w-full flex items-center justify-center text-4xl">
-                        <button className="bg-navyblue w-80 h-20 flex items-center justify-center rounded-lg">
+                        <button className="bg-navyblue w-80 h-20 flex items-center justify-center rounded-lg m-4 hover:bg-highlight hover:transition-colors duration-300 hover:transform hover:scale-105">
                             <a href="https://github.com/possiblyselena">
-                                GitHub
+                                GitHub  
                             </a>
                         </button>
-                        <button className="bg-navyblue w-80 h-20 flex items-center justify-center rounded-lg">
+                        <button className="bg-navyblue w-80 h-20 flex items-center justify-center rounded-lg hover:bg-highlight hover:transition-colors duration-300 hover:transform hover:scale-105">
                             <a href="https://www.instagram.com/s_nguyen080">
                                 Instagram
                             </a>
@@ -126,9 +144,9 @@ export default function Home() {
                         </form>
                         <section className="align-center mt-10">
                             <h2>Entries</h2>
-                            {entries.length === 0 && <p>No entries yet</p>}
+                            {monthlyEntries.length === 0 && <p>No entries yet for this month</p>}
                             <div className="grid grid-cols-2 gap-4 mt-4">
-                                {entries.slice(0, 6).map(entry => (
+                                {visibleEntries.map(entry => (
                                 <div key={entry.id} className="bg-stickynote w-60 h-60 shadow-2xs">
                                     <strong>{entry.name}</strong>
                                     <p>{entry.message}</p>
@@ -136,14 +154,23 @@ export default function Home() {
                                 </div>
                             ))}
                             </div>
-                            {/* optionally show a button to load more entries */}
-                            {entries.length > 6 && (
-                                <button
-                                    className="mt-4 text-navyblue underline"
-                                    onClick={() => setEntries(entries)} // placeholder if implementing pagination state
-                                >
-                                    Show more
-                                </button>
+                            {totalPages > 1 && (
+                                <div className="mt-4 flex gap-2">
+                                    <button
+                                        className="bg-navyblue text-white px-4 py-2 rounded disabled:opacity-50"
+                                        onClick={() => setPage(prev => Math.max(prev - 1, 0))}
+                                        disabled={page === 0}
+                                    >
+                                        Previous
+                                    </button>
+                                    <button
+                                        className="bg-navyblue text-white px-4 py-2 rounded disabled:opacity-50"
+                                        onClick={() => setPage(prev => Math.min(prev + 1, totalPages - 1))}
+                                        disabled={page >= totalPages - 1}
+                                    >
+                                        Next
+                                    </button>
+                                </div>
                             )}
                         </section>
                 </div>

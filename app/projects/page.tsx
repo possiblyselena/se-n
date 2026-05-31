@@ -14,19 +14,19 @@ export default function Home() {
                         </h1>
                         <div className="grid grid-cols-4 scale-90">
                             <a href="/">
-                                <img src="/bluebookmark.svg">
+                                <img src="/bluebookmark.svg" className="hover:transform hover:scale-105 hover:transition">
                                 </img>
                             </a>
                             <a href="/aboutme">
-                                <img src="/purplebookmark.png">
+                                <img src="/purplebookmark.png" className="hover:transform hover:scale-105 hover:transition">
                                 </img>
                             </a>
                             <a href="/projects">
-                                <img src="/pinkbookmark.svg">
+                                <img src="/pinkbookmark.svg" className="hover:transform hover:scale-105 hover:transition">
                                 </img>
                             </a>
                             <a href="/contacts">
-                                <img src="/greenbookmark.svg">
+                                <img src="/greenbookmark.svg" className="hover:transform hover:scale-105 hover:transition">
                                 </img>
                             </a>
                         </div>
@@ -39,7 +39,7 @@ export default function Home() {
 
                  <div className="py-4 grid grid-rows-4 gap-8">
                     <div className="font-shadow text-4xl text-navyblue dark:text-navyblue sm:text-3xl">
-                        <h2 className="bg-[url('/squiggle.svg')] bg-[width-20%] bg-contain bg-no-repeat">
+                        <h2 className="bg-[url('/squiggle.svg')] bg-[width-20%] bg-contain bg-no-repeat hover:transform hover:scale-105 hover:transition">
                         <a href="https://www.hammerhacks.ca/">Hammerhacks</a>
                         </h2>   
                         <ul className="py-4 text-2xl font-shadow text-navyblue rows-3 space-y-2">    
